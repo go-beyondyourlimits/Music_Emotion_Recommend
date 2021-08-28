@@ -75,3 +75,9 @@ docker exec -it <dockerimagename>  /bin/bash
 * アルファ版リリース用ブランチは商用環境用
 * ベータ版リリース用ブランチはテスト環境での動作確認用
 * 開発用個別ブランチで作業した内容を開発用マスターブランチへmergeする
+## 04_issue運用
+## 05_参考
+[環境構築]
+    * [DockerでReact＋Django+Nginx＋MySQLの環境構築](DockerでReact＋Django+Nginx＋MySQLの環境構築)
+[issue運用]
+
