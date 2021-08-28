@@ -34,8 +34,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 git clone https://github.com/go-beyondyourlimits/Music_Emotion_Recommend.git
 ```
-* docker環境作成
-backend/web-back/.envを作成し以下を記載
+### docker環境作成
+* backend/web-back/.envを作成し以下を記載
 ```
 SECRET_KEY='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 DEBUG=False
@@ -63,7 +63,8 @@ docker-compose up --build
 ```
 docker exec -it <dockerimagename>  /bin/bash
 ```
-* dockerコンテン内で作業する
+### dockerコンテン内作業
+
 ## 02_ブランチ命名規則
 * release/xxxxxxxx_alpha：アルファ版リリース用ブランチ
 * release/xxxxxxxx_beta：ベータ版リリース用ブランチ
