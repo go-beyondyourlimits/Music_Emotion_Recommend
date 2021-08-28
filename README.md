@@ -1,5 +1,19 @@
 # Music_Emotion_Recommend
-## 00_開発環境
+## 00_全体像
+* フロントエンド
+  * JavaScript(React)
+* バックエンド
+  * Python
+* データベース
+  * PosgreSQL or MySQL
+* Webサーバー
+  * Nginx
+* 開発環境
+  * Docker
+  * docker-compose
+* インフラ
+  * AWS 
+## 01_開発環境
 ### ローカル準備 (Dockerインストール)
 Homebrewm経由でインストールする
 
@@ -30,12 +44,12 @@ docker-compose up -d
 docker exec -it <dockerimagename>  /bin/bash
 ```
 * dockerコンテン内で作業する
-## 01_ブランチ命名規則
+## 02_ブランチ命名規則
 * release/xxxxxxxx_alpha：アルファ版リリース用ブランチ
 * release/xxxxxxxx_beta：ベータ版リリース用ブランチ
 * development/xxxxxxxx_master：開発用マスターブランチ
 * development/xxxxxxxx_xxxxx：開発用個別ブランチ
-## 02_運用ルール
+## 03_運用ルール
 * mainブランチへはPushしない
 * アルファ版リリース用ブランチは商用環境用
 * ベータ版リリース用ブランチはテスト環境での動作確認用
