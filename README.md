@@ -35,9 +35,29 @@ sudo chmod +x /usr/local/bin/docker-compose
 git clone https://github.com/go-beyondyourlimits/Music_Emotion_Recommend.git
 ```
 * docker環境作成
+backend/web-back/.envを作成し以下を記載
 ```
-cd docker
-docker-compose up -d
+SECRET_KEY='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+DEBUG=False
+HOST=db
+USER=user
+```
+* backendコンテナにてDataBaseの作成
+```
+docker-compose run --rm web-back sh -c "python manage.py makemigrations"
+docker-compose run --rm web-back sh -c "python manage.py migrate"
+```
+* backendコンテナにて権限ユーザを作成
+```
+docker-compose run --rm web-back sh -c "python manage.py createsuperuser"
+```
+* frontendコンテナにてパッケージインストール
+```
+docker-compose run --rm web-front sh -c "yarn add next react"
+```
+* コンテナをビルド
+```
+docker-compose up --build
 ```
 * dockerコンテナ内に入る
 ```
