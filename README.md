@@ -65,6 +65,18 @@ docker exec -it <dockerimagename>  /bin/bash
 ```
 ### dockerコンテン内作業
 
+### pre-commitの導入
+gitcommitする際にコードの自動チェックを行うため、pre-commitmを導入する
+以下、ローカル環境のMusic_Emotion_Recommendディレクトリで実施
+* pre-commitのインストール
+```
+pip install pre-commit
+```
+* セットアップ
+```
+pre-commit install
+```
+
 ## 02_ブランチ命名規則
 * release/xxxxxxxx_alpha：アルファ版リリース用ブランチ
 * release/xxxxxxxx_beta：ベータ版リリース用ブランチ
