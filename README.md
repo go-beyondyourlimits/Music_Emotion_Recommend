@@ -50,6 +50,12 @@ bash run.sh # dockerコンテナを作成するファイル
 ```
 docker-compose up --build
 ```
+以下のログが表示されたら `http://localhost:3000`へアクセス
+```
+.....
+.....
+event - compiled successfully
+```
 * dockerコンテナ内に入る
 ```
 docker exec -it <dockerimagename>  /bin/bash
@@ -80,9 +86,9 @@ pre-commit install
 * 開発用個別ブランチで作業した内容を開発用マスターブランチへmergeする
 ## 04_issue運用
 ## 05_参考
-[環境構築]
-* [DockerでReact＋Django+Nginx＋MySQLの環境構築](https://github.com/greenteabiscuit/django-react-nginx-mysql-docker)
-[issue運用]
-* 後日記載
-[pre-commit]
-* [pre-commitでコミット時にコードの整形やチェックを行う](https://zenn.dev/yiskw713/articles/3c3b4022f3e3f22d276d)
+* [環境構築]
+    * [DockerでReact＋Django+Nginx＋MySQLの環境構築](https://github.com/greenteabiscuit/django-react-nginx-mysql-docker)
+* [issue運用]
+    * 後日記載
+* [pre-commit]
+    * [pre-commitでコミット時にコードの整形やチェックを行う](https://zenn.dev/yiskw713/articles/3c3b4022f3e3f22d276d)
