@@ -37,23 +37,14 @@ git clone https://github.com/go-beyondyourlimits/Music_Emotion_Recommend.git
 ### docker環境作成
 * backend/web-back/.envを作成し以下を記載
 ```
-SECRET_KEY='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+SECRET_KEY='XXXXXXXXXXXXXXXXXXXXXXXXXXX'
 DEBUG=False
 HOST=db
 USER=user
 ```
-* backendコンテナにてDataBaseの作成
+* コンテナの作成
 ```
-docker-compose run --rm web-back sh -c "python manage.py makemigrations"
-docker-compose run --rm web-back sh -c "python manage.py migrate"
-```
-* backendコンテナにて権限ユーザを作成
-```
-docker-compose run --rm web-back sh -c "python manage.py createsuperuser"
-```
-* frontendコンテナにてパッケージインストール
-```
-docker-compose run --rm web-front sh -c "yarn add next react"
+bash run.sh # dockerコンテナを作成するファイル
 ```
 * コンテナをビルド
 ```
@@ -90,5 +81,8 @@ pre-commit install
 ## 04_issue運用
 ## 05_参考
 [環境構築]
-    * [DockerでReact＋Django+Nginx＋MySQLの環境構築](DockerでReact＋Django+Nginx＋MySQLの環境構築)
+* [DockerでReact＋Django+Nginx＋MySQLの環境構築](https://github.com/greenteabiscuit/django-react-nginx-mysql-docker)
 [issue運用]
+* 後日記載
+[pre-commit]
+* [pre-commitでコミット時にコードの整形やチェックを行う](https://zenn.dev/yiskw713/articles/3c3b4022f3e3f22d276d)
