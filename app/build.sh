@@ -11,4 +11,3 @@ docker-compose run --rm web-front sh -c "yarn add next react"
 
 # コンテナのビルド
 docker-compose up --build
-

@@ -5,10 +5,10 @@ import sys
 
 
 def main():
-    if os.environ.get('ENV') == "LOCAL":
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.local_settings')
-    elif os.environ.get('ENV') == "STAGING":
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.staging_settings')
+    if os.environ.get("ENV") == "LOCAL":
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.local_settings")
+    elif os.environ.get("ENV") == "STAGING":
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.staging_settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -20,5 +20,5 @@ def main():
     execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

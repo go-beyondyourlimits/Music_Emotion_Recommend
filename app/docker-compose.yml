@@ -10,7 +10,6 @@ services:
       - static_volume:/code/staticfiles # <-- bind the static volume
     stdin_open: true
     tty: true
-    privileged: true
     command: gunicorn --bind :8000 config.wsgi:application
     networks:
       - backend_network
@@ -26,7 +25,6 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - static_volume:/code/staticfiles # <-- bind the static volume
-    privileged: true
     ports:
       - "8080:80"
     depends_on:
@@ -47,7 +45,6 @@ services:
     volumes:
       - ./mysql_volume:/var/lib/mysql
       - ./sql:/docker-entrypoint-initdb.d
-    privileged: true
     networks:
       - backend_network
 
@@ -66,7 +63,6 @@ services:
     build:
       context: ./frontend/nginx/.
       dockerfile: Dockerfile.dev
-    privileged: true
     ports:
       - "80:80"
     depends_on:
