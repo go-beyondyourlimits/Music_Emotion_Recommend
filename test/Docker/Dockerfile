@@ -9,7 +9,7 @@ WORKDIR  ${HOME}
 ENV DEBIAN_FRONTEND noninteractive
 # Unicode指定(日本語対応)
 ENV PYTHONIOENCODING utf-8
-# Install mysql, pip3, tmux, git
+# Install pip3, tmux, git
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         vim \
@@ -19,10 +19,19 @@ RUN apt-get update \
         tmux \
         git \
         nodejs \
-        yarn \
+        curl \
         npm
     #W&& apt-get clean
     # && rm -rf /var/lib/apt/lists/*
+
+# yarn install
+RUN apt remove -y cmdtest
+RUN apt remove -y yarn
+RUN apt-get install -y gnupg2
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -y --no-install-recommends yarn
+
 # Install Python Packages
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade setuptools
