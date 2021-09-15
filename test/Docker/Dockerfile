@@ -19,6 +19,7 @@ RUN apt-get update \
         tmux \
         git \
         nodejs \
+        yarn \
         npm
     #W&& apt-get clean
     # && rm -rf /var/lib/apt/lists/*

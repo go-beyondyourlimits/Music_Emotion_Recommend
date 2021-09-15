@@ -10,5 +10,5 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - ./spotify-music-search-app:/root/spotify-music-search-app
+      - ../spotify-music-search-app/:/root/spotify-music-search-app
     restart: always
