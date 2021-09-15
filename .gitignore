@@ -215,4 +215,3 @@ $RECYCLE.BIN/
 node_modules
 .env
 .next
-*.json
