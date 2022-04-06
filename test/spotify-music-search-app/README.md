@@ -2,7 +2,7 @@ To run this project,
 
 open `.env` file and add your client_id from spotify dashboard and then open terminal and execute the following commands in sequence
 
-.env
+`.env` file
 ```
 REACT_APP_CLIENT_ID=your_spotify_id
 REACT_APP_AUTHORIZE_URL=https://accounts.spotify.com/authorize
