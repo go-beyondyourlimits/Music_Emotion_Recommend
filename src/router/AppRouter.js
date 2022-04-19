@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from '../components/Home';
-import RedirectPage from '../components/RedirectPage';
+// import Home from '../components/Home';
+// import RedirectPage from '../components/RedirectPage';
 import Dashboard from '../components/Dashboard';
-import NotFoundPage from '../components/NotFoundPage';
+// import NotFoundPage from '../components/NotFoundPage';
+import Home from '../components/Home';
 
 class AppRouter extends React.Component {
   state = {
@@ -24,27 +25,34 @@ class AppRouter extends React.Component {
     this.setState({ expiryTime });
   };
 
-  isValidSession = () => {
-    const currentTime = new Date().getTime();
-    const expiryTime = this.state.expiryTime;
-    const isSessionValid = currentTime < expiryTime;
+  // isValidSession = () => {
+  //   const currentTime = new Date().getTime();
+  //   const expiryTime = this.state.expiryTime;
+  //   const isSessionValid = currentTime < expiryTime;
 
+  //   return isSessionValid;
+  // };
+
+  isValidSession = () => {
+    const isSessionValid = true;
+    
     return isSessionValid;
   };
+
 
   render() {
     return (
       <BrowserRouter>
         <div className="main">
           <Switch>
-            <Route
+            {/* <Route
               path="/"
               exact={true}
               render={(props) => (
                 <Home isValidSession={this.isValidSession} {...props} />
               )}
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="/redirect"
               render={(props) => (
                 <RedirectPage
@@ -53,14 +61,15 @@ class AppRouter extends React.Component {
                   {...props}
                 />
               )}
-            />
+            /> */}
             <Route
               path="/dashboard"
               render={(props) => (
                 <Dashboard isValidSession={this.isValidSession} {...props} />
               )}
             />
-            <Route component={NotFoundPage} />
+            {/* <Route component={NotFoundPage} /> */}
+            <Route component={Home} />
           </Switch>
         </div>
       </BrowserRouter>
