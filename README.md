@@ -1,100 +1,83 @@
-# Music_Emotion_Recommend
-## 00_全体像
-* フロントエンド
-  * JavaScript(React)
-* バックエンド
-  * Python
-* データベース
-  * PosgreSQL or MySQL
-* Webサーバー
-  * Nginx
-* 開発環境
-  * Docker
-  * docker-compose
-* インフラ
-  * AWS 
-## 01_開発環境
-### ローカル準備 (Dockerインストール)
-Homebrewm経由でインストールする
+To run this project, 
 
-* Homebrewのインストール
-```
-% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-* Dockerのインストール
-```
-brew install --cask docker
-```
-* docker-composeのインストール (バージョン1.27.4)
-```
-sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-```
-* code clone
-```
-git clone https://github.com/go-beyondyourlimits/Music_Emotion_Recommend.git
-```
-### docker環境作成
-* backend/web-back/.envを作成し以下を記載
-```
-SECRET_KEY='XXXXXXXXXXXXXXXXXXXXXXXXXXX'
-DEBUG=False
-HOST=db
-USER=user
-```
-* コンテナの作成
-```
-bash run.sh # dockerコンテナを作成するファイル
-```
-* コンテナをビルド
-```
-docker-compose up --build
-```
-以下のログが表示されたら `http://localhost:3000`へアクセス
-```
-.....
-.....
-event - compiled successfully
-```
-* dockerコンテナ内に入る
-```
-docker exec -it <dockerimagename>  /bin/bash
-```
-### dockerコンテン内作業
+open `.env` file and add your client_id from spotify dashboard and then open terminal and execute the following commands in sequence
 
-### pre-commitの導入
-gitcommitする際にコードの自動チェックを行うため、pre-commitmを導入する
-以下、ローカル環境のMusic_Emotion_Recommendディレクトリで実施
-* pre-commitのインストール
+`.env` file
 ```
-pip install pre-commit
+REACT_APP_CLIENT_ID=your_spotify_id
+REACT_APP_AUTHORIZE_URL=https://accounts.spotify.com/authorize
+REACT_APP_REDIRECT_URL=http://localhost:3000/redirect
 ```
-* セットアップ
-```
-pre-commit install
+```js
+1. yarn install
+2. yarn start
 ```
 
-## 02_ブランチ運用規則と命名規則
-### main:マスターブランチ
-Pushしない．マージを行うだけのブランチになりリリースと同時に更新する
-### release/xxxxxxxx:リリースブランチ
-リリースするために使うブランチ. developブランチからreleaseブランチを切って,そのブランチでリリース作業を行う．リリース作業が完了したら,mainブランチとdevelopブランチにマージして，mainブランチのマージコミットにリリースタグ（バージョンなど）を記載する．その後，releaseブランチは削除する．
-### development/xxxxxxxx：開発用ブランチ
-開発の中心となるブランチ．開発中はdevelopブランチからブランチを切って，作業完了後に再びマージするという作業を繰り返すことになる，mainブランチ同様,直接このブランチにコミットすることはないので注意．リポジトリを新規作成したときに,mainブランチからdevelopブランチを切っておく．
-### feature/xxxxxxxx：機能の追加や変更ブランチ
-featureブランチは，機能の追加や変更，バグフィックスを行うブランチ．ひとつの変更に対してひとつのfeatureブランチを切ること．ブランチの名前は．変更の内容がすぐに分かるような名称にする．developブランチから派生させ，作業完了後に再びdevelopブランチにマージする．マージ完了後に削除する．
-### hotfix/xxxxxxxxx:リリース時の急な修正を行うブランチ
-製品のリリース時に重大な不具合が見つかる場合の改修ブランチ．mainブランチから直接hotfixブランチを切って緊急の修正を行う．修正完了後にmainブランチとdevelopブランチにマージして,リリースタグ（マイナーバージョンなど）をうつ．その後，hotfixブランチは削除する．派生元がmainになるだけで,操作的にはreleaseブランチと同様.
-## 03_運用ルール
-* mainブランチへはPushしない
-* アルファ版リリース用ブランチは商用環境用
-* ベータ版リリース用ブランチはテスト環境での動作確認用
-* 開発用個別ブランチで作業した内容を開発用マスターブランチへmergeする
-## 04_issue運用
-## 05_参考
-* [環境構築]
-    * [DockerでReact＋Django+Nginx＋MySQLの環境構築](https://github.com/greenteabiscuit/django-react-nginx-mysql-docker)
-* [issue運用]
-    * 後日記載
-* [pre-commit]
-    * [pre-commitでコミット時にコードの整形やチェックを行う](https://zenn.dev/yiskw713/articles/3c3b4022f3e3f22d276d)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `yarn start`
+
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
