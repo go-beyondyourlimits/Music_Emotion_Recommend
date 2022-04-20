@@ -3,6 +3,7 @@ To run this project,
 open `.env` file and add your client_id from spotify dashboard and then open terminal and execute the following commands in sequence
 
 make `Music_Emotion_Recommend/.env` file
+
 your_spotify_id is get from https://beta.developer.spotify.com/dashboard/
 ```
 REACT_APP_CLIENT_ID=your_spotify_id
